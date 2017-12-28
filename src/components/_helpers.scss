@@ -1,0 +1,174 @@
+/*********************
+Media Query Classes
+**********************/
+
+.hide-on-extra-small-only, .hide-on-extra-small-and-down {@media #{$extra-small-and-down}{display:none !important;}}
+.hide-on-small-only {@media #{$small-only}{display:none !important;}}
+.hide-on-small-and-down {@media #{$small-and-down}{display:none !important;}}
+.hide-on-small-and-up {@media #{$small-and-up}{display:none !important;}}
+.hide-on-med-only {@media #{$medium-only}{display:none !important;}}
+.hide-on-med-and-down {@media #{$medium-and-down}{display:none !important;}}
+.hide-on-med-and-up {@media #{$medium-and-up}{display:none !important;}}
+.hide-on-large-only {@media #{$large-only}{display:none !important;}}
+.hide-on-large-and-down {@media #{$large-and-down}{display:none !important;}}
+.hide-on-large-and-up {@media #{$large-and-up}{display:none !important;}}
+.hide-on-extra-large-only, .hide-on-extra-large-and-up {@media #{$extra-large-and-up}{display:none !important;}}
+
+.show-on-extra-small-only, .show-on-extra-small-and-down {@media #{$extra-small-and-down}{display:block !important;}}
+.show-on-small-only {@media #{$small-only}{display:block !important;}}
+.show-on-small-and-down {@media #{$small-and-down}{display:block !important;}}
+.show-on-small-and-up {@media #{$small-and-up}{display:block !important;}}
+.show-on-med-only {@media #{$medium-only}{display:block !important;}}
+.show-on-med-and-down {@media #{$medium-and-down}{display:block !important;}}
+.show-on-med-and-up {@media #{$medium-and-up}{display:block !important;}}
+.show-on-large-only {@media #{$large-only}{display:block !important;}}
+.show-on-large-and-down {@media #{$large-and-down}{display:block !important;}}
+.show-on-large-and-up {@media #{$large-and-up}{display:block !important;}}
+.show-on-extra-large-only, .show-on-extra-large-and-up {@media #{$extra-large-and-up}{display:block !important;}}
+
+.screen-detector::after {
+   position: fixed;
+   pointer-events: none;
+   background-color: black;
+   color: white;
+   content: "Something's wrong is happenning...";
+   padding: 3px 10px;
+   bottom: 0;
+   right: 0;
+   z-index: 99999999999999999999999999;
+   @media #{$extra-small-and-down} {content: "Extra Small Screen";}
+   @media #{$small-only} {content: "Small Screen";}
+   @media #{$medium-only} {content: "Medium Screen";}
+   @media #{$large-only} {content: "Large Screen";}
+   @media #{$extra-large-and-up} {content: "Extra Large Screen";}
+}
+
+/*********************
+Center text on mobile
+**********************/
+.center-on-small-only {
+   @media #{$small-and-down} {
+      text-align: center;
+   }
+}
+
+/*********************
+Responsive Videos
+**********************/
+.video-container {
+   position: relative;
+   padding-bottom: 56.25%;
+   height: 0;
+   overflow: hidden;
+
+   iframe, object, embed {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+   }
+}
+
+/*******************
+Utility Classes
+*******************/
+
+.hide {display: none !important;}
+
+// Text Align
+.left-align {text-align: left;}
+.right-align {text-align: right}
+.center, .center-align {text-align: center;}
+
+.left {float: left !important;}
+.right {float: right !important;}
+
+// No Text Select
+.no-select {user-select: none;}
+
+.circle {border-radius: 50%;}
+
+.center-block {
+   display: block;
+   margin-left: auto;
+   margin-right: auto;
+}
+
+.truncate {
+   display: block;
+   white-space: nowrap;
+   overflow: hidden;
+   text-overflow: ellipsis;
+}
+
+.section {
+   padding: 1rem 0;
+   &.padded {padding: 3rem 0;}
+   &.top-padded {padding-top: 3rem;}
+   &.bot-padded {padding-bottom: 3rem;}
+}
+
+.no-padding, .no-pad {padding: 0 !important;}
+.no-pad-top {padding-top: 0 !important;}
+.no-pad-right {padding-right: 0 !important;}
+.no-pad-bot {padding-bottom: 0 !important;}
+.no-pad-left {padding-left: 0 !important;}
+
+.no-margin, .no-mrg {margin:0 !important;}
+.no-mrg-top {margin-top:0 !important;}
+.no-mrg-right {margin-right:0 !important;}
+.no-mrg-bot {margin-bottom:0 !important;}
+.no-mrg-left {margin-left:0 !important;}
+
+.valign-wrapper {display: flex;align-items: center;}
+
+/*********************
+Icon Styles
+**********************/
+i {
+   line-height: inherit;
+   &.left {float: left;margin-right: 15px;}
+   &.right {float: right;margin-left: 15px;}
+   &.tiny {font-size: 1rem;}
+   &.small {font-size: 2rem;}
+   &.medium {font-size: 4rem;}
+   &.large {font-size: 6rem;}
+}
+
+/*********************
+Blockquote
+**********************/
+blockquote {
+   margin: 20px 0;
+   padding-left: 1.5rem;
+   border-left: 5px solid $primary-color;
+}
+
+/*********************
+Dividers
+**********************/
+.divider {
+   height: 1px;
+   overflow: hidden;
+   background-color: color("grey", "lighten-2");
+}
+
+/*********************
+Sticky Footer
+**********************/
+body {
+   display: flex;
+   min-height: 100vh;
+   flex-direction: column;
+}
+main {
+   flex: 1 0 auto;
+}
+
+a {
+   color: inherit;
+   text-decoration: none;
+   // Gets rid of tap active state
+   -webkit-tap-highlight-color: transparent;
+}

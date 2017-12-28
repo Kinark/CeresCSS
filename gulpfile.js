@@ -6,6 +6,7 @@ var rename = require('gulp-rename');
 
 var input = './src/**/*.scss';
 var output = './dist/css';
+var testOutput = './test';
 
 gulp.task('sass', function () {
   return gulp
@@ -14,6 +15,7 @@ gulp.task('sass', function () {
     .on('error', onError)
     .pipe(autoprefixer())
     .pipe(gulp.dest(output))
+    .pipe(gulp.dest(testOutput))
     .pipe(minify())
     .pipe(rename("ceres.min.css"))
     .pipe(gulp.dest(output));
