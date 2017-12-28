@@ -20,5 +20,10 @@
   "bugs": {
     "url": "https://github.com/Kinark/CeresCSS/issues"
   },
-  "homepage": "https://github.com/Kinark/CeresCSS#readme"
+  "homepage": "https://github.com/Kinark/CeresCSS#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^4.0.0",
+    "gulp-sass": "^3.1.0"
+  }
 }
