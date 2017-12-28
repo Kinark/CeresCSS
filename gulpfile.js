@@ -10,10 +10,6 @@ var input = './src/**/*.scss';
 var output = './dist/css';
 var testOutput = './test';
 
-var sassdocOptions = {
-  dest: './public/sassdoc'
-};
-
 gulp.task('sass', function () {
   return gulp
     .src(input)
@@ -31,7 +27,7 @@ gulp.task('sass', function () {
 gulp.task('sassdoc', function () {
   return gulp
     .src(input)
-    .pipe(sassdoc(sassdocOptions))
+    .pipe(sassdoc())
     .resume();
 });
 
