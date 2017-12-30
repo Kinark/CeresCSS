@@ -5609,6 +5609,139 @@ template {
           -ms-flex-order: initial;
               order: initial; } }
 
+/*********************
+Media Query Classes
+**********************/
+@media only screen and (max-width: 575px) {
+  .hide-on-extra-small-only, .hide-on-extra-small-and-down {
+    display: none !important; } }
+
+@media only screen and (min-width: 576px) and (max-width: 767px) {
+  .hide-on-small-only {
+    display: none !important; } }
+
+@media only screen and (max-width: 767px) {
+  .hide-on-small-and-down {
+    display: none !important; } }
+
+@media only screen and (min-width: 576px) {
+  .hide-on-small-and-up {
+    display: none !important; } }
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .hide-on-med-only {
+    display: none !important; } }
+
+@media only screen and (max-width: 991px) {
+  .hide-on-med-and-down {
+    display: none !important; } }
+
+@media only screen and (min-width: 768px) {
+  .hide-on-med-and-up {
+    display: none !important; } }
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .hide-on-large-only {
+    display: none !important; } }
+
+@media only screen and (max-width: 1199px) {
+  .hide-on-large-and-down {
+    display: none !important; } }
+
+@media only screen and (min-width: 992px) {
+  .hide-on-large-and-up {
+    display: none !important; } }
+
+@media only screen and (min-width: 1200px) {
+  .hide-on-extra-large-only, .hide-on-extra-large-and-up {
+    display: none !important; } }
+
+@media only screen and (max-width: 575px) {
+  .show-on-extra-small-only, .show-on-extra-small-and-down {
+    display: block !important; } }
+
+@media only screen and (min-width: 576px) and (max-width: 767px) {
+  .show-on-small-only {
+    display: block !important; } }
+
+@media only screen and (max-width: 767px) {
+  .show-on-small-and-down {
+    display: block !important; } }
+
+@media only screen and (min-width: 576px) {
+  .show-on-small-and-up {
+    display: block !important; } }
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .show-on-med-only {
+    display: block !important; } }
+
+@media only screen and (max-width: 991px) {
+  .show-on-med-and-down {
+    display: block !important; } }
+
+@media only screen and (min-width: 768px) {
+  .show-on-med-and-up {
+    display: block !important; } }
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .show-on-large-only {
+    display: block !important; } }
+
+@media only screen and (max-width: 1199px) {
+  .show-on-large-and-down {
+    display: block !important; } }
+
+@media only screen and (min-width: 992px) {
+  .show-on-large-and-up {
+    display: block !important; } }
+
+@media only screen and (min-width: 1200px) {
+  .show-on-extra-large-only, .show-on-extra-large-and-up {
+    display: block !important; } }
+
+.screen-detector {
+  pointer-events: none;
+  position: absolute;
+  left: -99999px;
+  bottom: -99999px; }
+  .screen-detector::after {
+    position: fixed;
+    pointer-events: none;
+    background-color: black;
+    color: white;
+    content: "Something's really wrong is happenning and you should call the CIA...";
+    padding: 3px 10px;
+    bottom: 0;
+    right: 0;
+    z-index: 99999999999999999999999999;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none; }
+    @media only screen and (max-width: 575px) {
+      .screen-detector::after {
+        content: "Extra Small Screen (<576px)"; } }
+    @media only screen and (min-width: 576px) and (max-width: 767px) {
+      .screen-detector::after {
+        content: "Small Screen (<768px)"; } }
+    @media only screen and (min-width: 768px) and (max-width: 991px) {
+      .screen-detector::after {
+        content: "Medium Screen (<992px)"; } }
+    @media only screen and (min-width: 992px) and (max-width: 1199px) {
+      .screen-detector::after {
+        content: "Large Screen (<1201px)"; } }
+    @media only screen and (min-width: 1200px) {
+      .screen-detector::after {
+        content: "Extra Large Screen (>1199px)"; } }
+
+/*********************
+Center text on mobile
+**********************/
+@media only screen and (max-width: 767px) {
+  .center-on-small-only {
+    text-align: center; } }
+
 a {
   text-decoration: none; }
 
@@ -5845,130 +5978,6 @@ td, th {
       border: 0; }
     table.responsive-table.bordered tbody tr {
       border-right: 1px solid rgba(0, 0, 0, 0.12); } }
-
-/*********************
-Media Query Classes
-**********************/
-@media only screen and (max-width: 575px) {
-  .hide-on-extra-small-only, .hide-on-extra-small-and-down {
-    display: none !important; } }
-
-@media only screen and (min-width: 576px) and (max-width: 767px) {
-  .hide-on-small-only {
-    display: none !important; } }
-
-@media only screen and (max-width: 767px) {
-  .hide-on-small-and-down {
-    display: none !important; } }
-
-@media only screen and (min-width: 576px) {
-  .hide-on-small-and-up {
-    display: none !important; } }
-
-@media only screen and (min-width: 768px) and (max-width: 991px) {
-  .hide-on-med-only {
-    display: none !important; } }
-
-@media only screen and (max-width: 991px) {
-  .hide-on-med-and-down {
-    display: none !important; } }
-
-@media only screen and (min-width: 768px) {
-  .hide-on-med-and-up {
-    display: none !important; } }
-
-@media only screen and (min-width: 992px) and (max-width: 1199px) {
-  .hide-on-large-only {
-    display: none !important; } }
-
-@media only screen and (max-width: 1199px) {
-  .hide-on-large-and-down {
-    display: none !important; } }
-
-@media only screen and (min-width: 992px) {
-  .hide-on-large-and-up {
-    display: none !important; } }
-
-@media only screen and (min-width: 1200px) {
-  .hide-on-extra-large-only, .hide-on-extra-large-and-up {
-    display: none !important; } }
-
-@media only screen and (max-width: 575px) {
-  .show-on-extra-small-only, .show-on-extra-small-and-down {
-    display: block !important; } }
-
-@media only screen and (min-width: 576px) and (max-width: 767px) {
-  .show-on-small-only {
-    display: block !important; } }
-
-@media only screen and (max-width: 767px) {
-  .show-on-small-and-down {
-    display: block !important; } }
-
-@media only screen and (min-width: 576px) {
-  .show-on-small-and-up {
-    display: block !important; } }
-
-@media only screen and (min-width: 768px) and (max-width: 991px) {
-  .show-on-med-only {
-    display: block !important; } }
-
-@media only screen and (max-width: 991px) {
-  .show-on-med-and-down {
-    display: block !important; } }
-
-@media only screen and (min-width: 768px) {
-  .show-on-med-and-up {
-    display: block !important; } }
-
-@media only screen and (min-width: 992px) and (max-width: 1199px) {
-  .show-on-large-only {
-    display: block !important; } }
-
-@media only screen and (max-width: 1199px) {
-  .show-on-large-and-down {
-    display: block !important; } }
-
-@media only screen and (min-width: 992px) {
-  .show-on-large-and-up {
-    display: block !important; } }
-
-@media only screen and (min-width: 1200px) {
-  .show-on-extra-large-only, .show-on-extra-large-and-up {
-    display: block !important; } }
-
-.screen-detector::after {
-  position: fixed;
-  pointer-events: none;
-  background-color: black;
-  color: white;
-  content: "Something's wrong is happenning...";
-  padding: 3px 10px;
-  bottom: 0;
-  right: 0;
-  z-index: 99999999999999999999999999; }
-  @media only screen and (max-width: 575px) {
-    .screen-detector::after {
-      content: "Extra Small Screen"; } }
-  @media only screen and (min-width: 576px) and (max-width: 767px) {
-    .screen-detector::after {
-      content: "Small Screen"; } }
-  @media only screen and (min-width: 768px) and (max-width: 991px) {
-    .screen-detector::after {
-      content: "Medium Screen"; } }
-  @media only screen and (min-width: 992px) and (max-width: 1199px) {
-    .screen-detector::after {
-      content: "Large Screen"; } }
-  @media only screen and (min-width: 1200px) {
-    .screen-detector::after {
-      content: "Extra Large Screen"; } }
-
-/*********************
-Center text on mobile
-**********************/
-@media only screen and (max-width: 767px) {
-  .center-on-small-only {
-    text-align: center; } }
 
 /*********************
 Responsive Videos
