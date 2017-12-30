@@ -3,13 +3,17 @@
    margin-left: auto;
    margin-right: auto;
    width: 95%;
+   max-width: 100%;
    padding-right: 8px;
    padding-left: 8px;
-   @media #{$small-and-up} {max-width: 100%;}
-   @media #{$small-and-up} {width: 560px;}
-   @media #{$medium-and-up} {width: 752px;}
-   @media #{$large-and-up} {width: 976px;}
-   @media #{$extra-large-and-up} {width: 1184px;}
+   @media #{$small-and-up} {width: 97.39%;}
+   @media #{$medium-and-up} {width: 97.91%;}
+   @media #{$large-and-up} {width: 98.38%;}
+   @media #{$extra-large-and-up} {width: 98.66%;}
+   // @media #{$small-and-up} {width: 560px;}
+   // @media #{$medium-and-up} {width: 752px;}
+   // @media #{$large-and-up} {width: 976px;}
+   // @media #{$extra-large-and-up} {width: 1184px;}
 }
 
 .container-fluid {
@@ -17,64 +21,59 @@
    padding-left: 16px;
 }
 
-.row {
-   box-sizing: border-box;
-   display: flex;
-   flex: 0 1 auto;
-   flex-direction: row;
-   flex-wrap: wrap;
-   margin-right: -8px;
-   margin-left: -8px;
-   &:after {
-      content: "";
-      display: table;
-      clear: both;
-   }
-   .reverse {flex-direction: row-reverse;}
-}
-
-// Mixins to eliminate code repitition
-@mixin extra-flex-classes($size) {
-   &.#{$size} {flex-grow: 1;flex-basis: 0;max-width: 100%;}
-   &.start-#{$size} {justify-content: flex-start; text-align: start;}
-   &.center-#{$size} {justify-content: center; text-align: center;}
-   &.end-#{$size} {justify-content: flex-end; text-align: end;}
-   &.top-#{$size} {align-items: flex-start;}
-   &.middle-#{$size} {align-items: center;}
-   &.bottom-#{$size} {align-items: flex-end;}
-   &.around-#{$size} {justify-content: space-around;}
-   &.between-#{$size} {justify-content: space-between;}
-   &.first-#{$size} {order: -1;}
-   &.last-#{$size} {order: 1;}
-   &.initial-order-#{$size} {order: initial;}
-}
 @mixin grid-constructor($size) {
    $i: 1;
    @while $i <= $num-cols {
       $perc: unquote((100 / ($num-cols / $i)) + "%");
       &.#{$size}#{$i} {
-         flex-basis: $perc;
-         max-width: $perc;
+         width: $perc;
       }
-      &.offset-#{$size}#{$i} {
-         margin-left: $perc;
+      @if $i < 12 {
+         &.offset-#{$size}#{$i} {
+            margin-left: $perc;
+         }
       }
-      @include extra-flex-classes($size);
+      &.pull-#{$size}#{$i} {
+        right: $perc;
+      }
+      &.push-#{$size}#{$i} {
+        left: $perc;
+      }
       $i: $i + 1;
    }
 }
 
-.col {
+.col .row {
+   margin-left: (-1 * $gutter-width / 2);
+   margin-right: (-1 * $gutter-width / 2);
+}
+
+.row {
    box-sizing: border-box;
-   flex: 0 0 auto;
-   padding-right: 8px;
-   padding-left: 8px;
-   .reverse {flex-direction: column-reverse;}
-   @include grid-constructor("xs");
-   @media #{$small-and-up} {@include grid-constructor("s");}
-   @media #{$medium-and-up} {@include grid-constructor("m");}
-   @media #{$large-and-up} {@include grid-constructor("l");}
-   @media #{$extra-large-and-up} {@include grid-constructor("xl");}
+   margin-left: auto;
+   margin-right: auto;
+   margin-bottom: 20px;
+   &:after {
+      content: "";
+      display: table;
+      clear: both;
+   }
+
+   .col {
+      box-sizing: border-box;
+      padding: 0 $gutter-width / 2;
+
+      &[class*="push-"],
+      &[class*="pull-"] {
+         position: relative;
+      }
+
+      @include grid-constructor("xs");
+      @media #{$small-and-up} {@include grid-constructor("s");}
+      @media #{$medium-and-up} {@include grid-constructor("m");}
+      @media #{$large-and-up} {@include grid-constructor("l");}
+      @media #{$extra-large-and-up} {@include grid-constructor("xl");}
+   }
 }
 
 /*********************
