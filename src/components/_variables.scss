@@ -114,3 +114,11 @@ $switch-checked-lever-bg: desaturate(lighten($switch-bg-color, 25%), 25%) !defau
 $switch-unchecked-bg: #F1F1F1 !default;
 $switch-unchecked-lever-bg: rgba(0,0,0,.38) !default;
 $switch-radius: 15px !default;
+
+// 7. Grid
+// ==========================================================================
+
+$num-cols: 12 !default;
+$gutter-width: 1.5rem !default;
+$element-top-margin: $gutter-width/3 !default;
+$element-bottom-margin: ($gutter-width*2)/3 !default;
