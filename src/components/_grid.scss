@@ -35,11 +35,7 @@
 
 // Mixins to eliminate code repitition
 @mixin extra-flex-classes($size) {
-   &.#{$size} {
-      flex-grow: 1;
-      flex-basis: 0;
-      max-width: 100%;
-   }
+   &.#{$size} {flex-grow: 1;flex-basis: 0;max-width: 100%;}
    &.start-#{$size} {justify-content: flex-start; text-align: start;}
    &.center-#{$size} {justify-content: center; text-align: center;}
    &.end-#{$size} {justify-content: flex-end; text-align: end;}
@@ -52,32 +48,21 @@
    &.last-#{$size} {order: 1;}
    &.initial-order-#{$size} {order: initial;}
 }
-@mixin reset-offset {
-   margin-left: auto;
-   left: auto;
-   right: auto;
-}
-@mixin grid-classes($size, $i, $perc) {
-   // @if $size <= 11
-   &.offset-#{$size}#{$i} {
-      margin-left: $perc;
+@mixin grid-constructor($size) {
+   $i: 1;
+   @while $i <= $num-cols {
+      $perc: unquote((100 / ($num-cols / $i)) + "%");
+      &.#{$size}#{$i} {
+         flex-basis: $perc;
+         max-width: $perc;
+      }
+      &.offset-#{$size}#{$i} {
+         margin-left: $perc;
+      }
+      @include extra-flex-classes($size);
+      $i: $i + 1;
    }
 }
-// @mixin grid-constructor($size) {
-//    $i: 1;
-//    @while $i <= $num-cols {
-//       $perc: unquote((100 / ($num-cols / $i)) + "%");
-//       $size: "xs";
-//       &.#{$size}#{$i} {
-//          flex-basis: $perc;
-//          max-width: $perc;
-//          @include reset-offset;
-//       }
-//       @include grid-classes($size, $i, $perc);
-//       @include extra-flex-classes($size);
-//       $i: $i + 1;
-//    }
-// }
 
 .col {
    box-sizing: border-box;
@@ -85,79 +70,9 @@
    padding-right: 8px;
    padding-left: 8px;
    .reverse {flex-direction: column-reverse;}
-
-   $i: 1;
-   @while $i <= $num-cols {
-      $perc: unquote((100 / ($num-cols / $i)) + "%");
-      $size: "xs";
-      &.#{$size}#{$i} {
-         flex-basis: $perc;
-         max-width: $perc;
-         @include reset-offset;
-      }
-      @include grid-classes($size, $i, $perc);
-      @include extra-flex-classes($size);
-      $i: $i + 1;
-   }
-
-   @media #{$small-and-up} {
-      $i: 1;
-      @while $i <= $num-cols {
-         $perc: unquote((100 / ($num-cols / $i)) + "%");
-         $size: "s";
-         &.#{$size}#{$i} {
-            flex-basis: $perc;
-            max-width: $perc;
-            @include reset-offset;
-         }
-         @include grid-classes($size, $i, $perc);
-         @include extra-flex-classes($size);
-         $i: $i + 1;
-      }
-   }
-   @media #{$medium-and-up} {
-      $i: 1;
-      @while $i <= $num-cols {
-         $perc: unquote((100 / ($num-cols / $i)) + "%");
-         $size: "m";
-         &.#{$size}#{$i} {
-            flex-basis: $perc;
-            max-width: $perc;
-            @include reset-offset;
-         }
-         @include grid-classes($size, $i, $perc);
-         @include extra-flex-classes($size);
-         $i: $i + 1;
-      }
-   }
-   @media #{$large-and-up} {
-      $i: 1;
-      @while $i <= $num-cols {
-         $perc: unquote((100 / ($num-cols / $i)) + "%");
-         $size: "l";
-         &.#{$size}#{$i} {
-            flex-basis: $perc;
-            max-width: $perc;
-            @include reset-offset;
-         }
-         @include grid-classes($size, $i, $perc);
-         @include extra-flex-classes($size);
-         $i: $i + 1;
-      }
-   }
-   @media #{$extra-large-and-up} {
-      $i: 1;
-      @while $i <= $num-cols {
-         $perc: unquote((100 / ($num-cols / $i)) + "%");
-         $size: "xl";
-         &.#{$size}#{$i} {
-            flex-basis: $perc;
-            max-width: $perc;
-            @include reset-offset;
-         }
-         @include grid-classes($size, $i, $perc);
-         @include extra-flex-classes($size);
-         $i: $i + 1;
-      }
-   }
+   @include grid-constructor("xs");
+   @media #{$small-and-up} {@include grid-constructor("s");}
+   @media #{$medium-and-up} {@include grid-constructor("m");}
+   @media #{$large-and-up} {@include grid-constructor("l");}
+   @media #{$extra-large-and-up} {@include grid-constructor("xl");}
 }
