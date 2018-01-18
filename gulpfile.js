@@ -1,6 +1,13 @@
 var gulp = require('gulp');
 var rename = require('gulp-rename');
 var pump = require('pump')
+var lec = require('gulp-line-ending-corrector');
+
+/////////////////////
+////////PATHS////////
+/////////////////////
+
+var mainScss = './src/scss/ceres.scss';
 
 var scssInput = './src/scss/**/*.scss';
 var scssOutput = './dist/css';
@@ -10,6 +17,9 @@ var jsOutput = './dist/js/';
 
 var testOutput = './test';
 
+var jadeInput = './src/jade/*.jade';
+var jadeOutput = './doc/';
+
 /////////////////////
 /////////CSS/////////
 /////////////////////
@@ -17,11 +27,11 @@ var sass = require('gulp-sass');
 var autoprefixer = require('gulp-autoprefixer');
 var cleanCss = require('gulp-clean-css');
 var sourcemaps = require('gulp-sourcemaps');
-var sassdoc = require('sassdoc');
 
 gulp.task('sass', function (cb) {
    pump([
-      gulp.src(scssInput),
+      gulp.src(mainScss),
+      lec(),
       sourcemaps.init(),
       sass().on('error', onError),
       autoprefixer(),
@@ -32,13 +42,6 @@ gulp.task('sass', function (cb) {
       rename("ceres.min.css"),
       gulp.dest(scssOutput),
    ],cb);
-});
-
-gulp.task('sassdoc', function () {
-   return gulp
-   .src(scssInput)
-   .pipe(sassdoc())
-   .resume();
 });
 
 /////////////////////
@@ -59,9 +62,29 @@ gulp.task('js', function (cb) {
    ],cb);
 });
 
+/////////////////////
+////////JADE/////////
+/////////////////////
+var jade = require('gulp-jade');
+
+gulp.task('jade', function (cb) {
+   var YOUR_LOCALS = { }
+   pump([
+      gulp.src('./src/jade/*.jade'),
+      jade({
+         locals: YOUR_LOCALS
+      }),
+      gulp.dest('./doc/')
+   ],cb);
+});
+
+/////////////////////
+////////WATCH////////
+/////////////////////
+
 gulp.task('watchCSS', function() {
    return gulp
-   .watch(scssInput, ['sass', 'sassdoc']);
+   .watch(scssInput, ['sass']);
 });
 
 gulp.task('watchJS', function() {
@@ -69,9 +92,18 @@ gulp.task('watchJS', function() {
    .watch(jsInput, ['js']);
 });
 
+gulp.task('watchJade', function() {
+   return gulp
+   .watch(jadeInput, ['jade']);
+});
+
+/////////////////////
+///////DEFAULT///////
+/////////////////////
+
+gulp.task('default', ['js', 'sass', 'jade', 'watchCSS', 'watchJS', 'watchJade']);
+
 function onError(err) {
    console.log(err);
    this.emit('end');
 }
-
-gulp.task('default', ['js', 'sass', 'sassdoc', 'watchCSS', 'watchJS']);
