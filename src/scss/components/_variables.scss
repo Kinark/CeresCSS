@@ -13,30 +13,32 @@ $link-color: color("light-blue", "darken-1") !default;
 // 2. Media queries
 // ==========================================================================
 
-// Media Query Ranges
-$extra-small-screen: 575px !default;
-$small-screen: 767px !default;
-$medium-screen: 991px !default;
-$large-screen: 1199px !default;
+// Media Query Ranges (last value before change)
+$extra-small-screen-max: 575px !default;
+$small-screen-max: 767px !default;
+$medium-screen-max: 991px !default;
+$large-screen-max: 1199px !default;
+// extra-large-screen > large-screen
 
-$extra-small-screen-up: $extra-small-screen + 1 !default;
-$small-screen-up: $small-screen + 1 !default;
-$medium-screen-up: $medium-screen + 1 !default;
-$large-screen-up: $large-screen + 1 !default;
+// Beginning of each screan (min values of each one)
+$small-screen-min: $extra-small-screen-max + 1 !default;
+$medium-screen-min: $small-screen-max + 1 !default;
+$large-screen-min: $medium-screen-max + 1 !default;
+$extra-large-screen-min: $large-screen-max + 1 !default;
 
-$small-and-up: "only screen and (min-width : #{$extra-small-screen-up})" !default;
-$medium-and-up: "only screen and (min-width : #{$small-screen-up})" !default;
-$large-and-up: "only screen and (min-width : #{$medium-screen-up})" !default;
-$extra-large-and-up: "only screen and (min-width : #{$large-screen-up})" !default;
+$small-and-up: "only screen and (min-width : #{$small-screen-min})" !default;
+$medium-and-up: "only screen and (min-width : #{$medium-screen-min})" !default;
+$large-and-up: "only screen and (min-width : #{$large-screen-min})" !default;
+$extra-large-and-up: "only screen and (min-width : #{$extra-large-screen-min})" !default;
 
-$extra-small-and-down: "only screen and (max-width : #{$extra-small-screen})" !default;
-$small-and-down: "only screen and (max-width : #{$small-screen})" !default;
-$medium-and-down: "only screen and (max-width : #{$medium-screen})" !default;
-$large-and-down: "only screen and (max-width : #{$large-screen})" !default;
+$extra-small-and-down: "only screen and (max-width : #{$extra-small-screen-max})" !default;
+$small-and-down: "only screen and (max-width : #{$small-screen-max})" !default;
+$medium-and-down: "only screen and (max-width : #{$medium-screen-max})" !default;
+$large-and-down: "only screen and (max-width : #{$large-screen-max})" !default;
 
-$small-only: "only screen and (min-width : #{$extra-small-screen-up}) and (max-width : #{$small-screen})" !default;
-$medium-only: "only screen and (min-width : #{$small-screen-up}) and (max-width : #{$medium-screen})" !default;
-$large-only: "only screen and (min-width : #{$medium-screen-up}) and (max-width : #{$large-screen})" !default;
+$small-only: "only screen and (min-width : #{$small-screen-min}) and (max-width : #{$small-screen-max})" !default;
+$medium-only: "only screen and (min-width : #{$medium-screen-min}) and (max-width : #{$medium-screen-max})" !default;
+$large-only: "only screen and (min-width : #{$large-screen-min}) and (max-width : #{$large-screen-max})" !default;
 
 // 3. Tables
 // ==========================================================================
