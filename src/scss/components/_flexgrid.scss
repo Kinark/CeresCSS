@@ -76,10 +76,9 @@ For you to set responsive layouts, just add `.col` class plus any class prefix f
             margin-left: $perc;
          }
       }
-      
-      @include col-extra-flex-classes($size);
       $i: $i + 1;
    }
+   @include col-extra-flex-classes($size);
 }
 
 .col .row {
@@ -111,6 +110,7 @@ For you to set responsive layouts, just add `.col` class plus any class prefix f
       box-sizing: border-box;
       flex: 0 0 auto;
       padding: 0 $gutter-width / 2;
+      // padding: $gutter-width / 2;
       .reverse {flex-direction: column-reverse;}
       @include grid-constructor("xs");
       @media #{$small-and-up} {@include grid-constructor("s");}
@@ -119,6 +119,16 @@ For you to set responsive layouts, just add `.col` class plus any class prefix f
       @media #{$extra-large-and-up} {@include grid-constructor("xl");}
    }
 }
+
+/*********************
+Center text on mobile
+**********************/
+.center-on-small-only {
+   @media #{$small-and-down} {
+      text-align: center;
+   }
+}
+
 
 /*********************
 Media Query Classes
@@ -169,14 +179,5 @@ Media Query Classes
       @media #{$medium-only} {content: "Medium Screen (<992px)";}
       @media #{$large-only} {content: "Large Screen (<1201px)";}
       @media #{$extra-large-and-up} {content: "Extra Large Screen (>1199px)";}
-   }
-}
-
-/*********************
-Center text on mobile
-**********************/
-.center-on-small-only {
-   @media #{$small-and-down} {
-      text-align: center;
    }
 }

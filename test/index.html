@@ -2,7 +2,7 @@
 <html>
 <head>
    <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width,initial-scale=1">
+   <meta name="viewport" content="width=device-width,initial-scale=1, user-scalable=no">
    <title>title</title>
    <link rel="stylesheet" href="ceres.css" type="text/css">
 </head>
@@ -11,28 +11,49 @@
       <div class="row">
          <div class="input-field col s6">
             <input type="text" id="aa" class="validate">
+            <i class="material-icons prefix">important_devices</i>
             <label for="aa">Puts</label>
          </div>
-         <div class="input-field col s6">
-            <select>
+         <div class="input-field col s6 xs12">
+            <select class="wide">
                <option value="" disabled selected>Choose your option</option>
                <option value="1">Option 1</option>
                <option value="2">Option 2</option>
                <option value="3">Option 3</option>
             </select>
+            <i class="material-icons prefix">important_devices</i>
             <label>Materialize Select</label>
          </div>
       </div>
-      <div class="tooltip-bottom" data-tooltip="Meu amigo! Que saudades :)">Alou</div>
-
+      
+      <p>
+         <input type="checkbox" id="remember_box" name="remember" value="1" />
+         <label for="remember_box">Remember me</label>
+      </p>
+      
+      <div data-balloon="Whats up!" data-balloon-pos="up" style="display:inline-block">Alou</div>
+      
       <div class="row">
-         <div class="col m12 l6"><div class="black">aa</div></div>
-         <div class="col m12 l6"><div class="black">aa</div></div>
+         <div class="col xs"><div class="black">aa</div></div>
+         <div class="col xs"><div class="black">aa</div></div>
       </div>
-
+      <div class="row">
+         <div class="col xs6 offset-xs6">
+            <div class="black">
+               <div class="row">
+                  <div class="col xs6"><div class="blue">a</div></div>
+                  <div class="col xs6"><div class="blue">a</div></div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <i class="material-icons">face</i>
       <div class="screen-detector"></div>
-
+      
    </div>
-
+   
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+   <script src="ceres.js"></script>
+   
 </body>
 </html>
