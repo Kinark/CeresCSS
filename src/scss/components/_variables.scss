@@ -62,7 +62,7 @@ $h6-fontsize: 1.15rem !default;
 // 5. Flow Text
 // ==========================================================================
 
-$range : $large-screen - $small-screen !default;
+$range : $large-screen-max - $small-screen-max !default;
 $intervals: 20 !default;
 $interval-size: $range / $intervals !default;
 
