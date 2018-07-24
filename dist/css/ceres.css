@@ -2007,33 +2007,6 @@ template {
 .transparent-text {
   color: transparent !important; }
 
-/*---
-title:   Basic
-section: Grid System
----
-
-Every `.col` must be inside a `.row`.
-
-| <= 575px | > 575px | > 767px | > 991px | > 1199px
---- | --- | --- | --- | ---
-**Class Prefix** | `.xs` | `.s` | `.m` | `.l` | `.xl`
-**Container Width** | 95% | 560px | 752px | 976px | 1184px
-**Number of Columns** | 12 | 12 | 12 | 12 | 12
-
-For you to set responsive layouts, just add `.col` class plus any class prefix followed by the number of columns.
-
-```example:html
-<div class="row">
-<div class="col xs12 s8 m6 l4 xl2 blue">LOL</div>
-<div class="col xs12 s8 m6 l4 xl2 pink">LOL</div>
-<div class="col xs12 s8 m6 l4 xl2 teal">LOL</div>
-<div class="col xs12 s8 m6 l4 xl2 yellow">LOL</div>
-<div class="col xs12 s8 m6 l4 xl2 red">LOL</div>
-<div class="col xs12 s8 m6 l4 xl2 purple">LOL</div>
-</div>
-```
-
-*/
 .container {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -2054,7 +2027,7 @@ For you to set responsive layouts, just add `.col` class plus any class prefix f
       width: 976px; } }
   @media only screen and (min-width: 1200px) {
     .container {
-      width: 1184px; } }
+      width: 1199px; } }
 
 .container-fluid {
   padding-right: 16px;
@@ -2064,9 +2037,145 @@ For you to set responsive layouts, just add `.col` class plus any class prefix f
   margin-left: -0.75rem;
   margin-right: -0.75rem; }
 
+/*********************
+Media Query Classes
+**********************/
+@media only screen and (max-width: 575px) {
+  .hide-on-extra-small-only, .hide-on-extra-small-and-down {
+    display: none !important; } }
+
+@media only screen and (min-width: 576px) and (max-width: 767px) {
+  .hide-on-small-only {
+    display: none !important; } }
+
+@media only screen and (max-width: 767px) {
+  .hide-on-small-and-down {
+    display: none !important; } }
+
+@media only screen and (min-width: 576px) {
+  .hide-on-small-and-up {
+    display: none !important; } }
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .hide-on-med-only {
+    display: none !important; } }
+
+@media only screen and (max-width: 991px) {
+  .hide-on-med-and-down {
+    display: none !important; } }
+
+@media only screen and (min-width: 768px) {
+  .hide-on-med-and-up {
+    display: none !important; } }
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .hide-on-large-only {
+    display: none !important; } }
+
+@media only screen and (max-width: 1199px) {
+  .hide-on-large-and-down {
+    display: none !important; } }
+
+@media only screen and (min-width: 992px) {
+  .hide-on-large-and-up {
+    display: none !important; } }
+
+@media only screen and (min-width: 1200px) {
+  .hide-on-extra-large-only, .hide-on-extra-large-and-up {
+    display: none !important; } }
+
+@media only screen and (max-width: 575px) {
+  .show-on-extra-small-only, .show-on-extra-small-and-down {
+    display: block !important; } }
+
+@media only screen and (min-width: 576px) and (max-width: 767px) {
+  .show-on-small-only {
+    display: block !important; } }
+
+@media only screen and (max-width: 767px) {
+  .show-on-small-and-down {
+    display: block !important; } }
+
+@media only screen and (min-width: 576px) {
+  .show-on-small-and-up {
+    display: block !important; } }
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .show-on-med-only {
+    display: block !important; } }
+
+@media only screen and (max-width: 991px) {
+  .show-on-med-and-down {
+    display: block !important; } }
+
+@media only screen and (min-width: 768px) {
+  .show-on-med-and-up {
+    display: block !important; } }
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .show-on-large-only {
+    display: block !important; } }
+
+@media only screen and (max-width: 1199px) {
+  .show-on-large-and-down {
+    display: block !important; } }
+
+@media only screen and (min-width: 992px) {
+  .show-on-large-and-up {
+    display: block !important; } }
+
+@media only screen and (min-width: 1200px) {
+  .show-on-extra-large-only, .show-on-extra-large-and-up {
+    display: block !important; } }
+
+.screen-detector {
+  pointer-events: none;
+  position: absolute;
+  left: -99999px;
+  bottom: -99999px; }
+  .screen-detector::after {
+    position: fixed;
+    pointer-events: none;
+    background-color: black;
+    color: white;
+    content: "Something's really wrong is happenning and you should call the CIA...";
+    padding: 3px 10px;
+    bottom: 0;
+    right: 0;
+    z-index: 99999999999999999999999999;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none; }
+    @media only screen and (max-width: 575px) {
+      .screen-detector::after {
+        content: "Extra Small Screen (<576px)"; } }
+    @media only screen and (min-width: 576px) and (max-width: 767px) {
+      .screen-detector::after {
+        content: "Small Screen (<768px)"; } }
+    @media only screen and (min-width: 768px) and (max-width: 991px) {
+      .screen-detector::after {
+        content: "Medium Screen (<992px)"; } }
+    @media only screen and (min-width: 992px) and (max-width: 1199px) {
+      .screen-detector::after {
+        content: "Large Screen (<1201px)"; } }
+    @media only screen and (min-width: 1200px) {
+      .screen-detector::after {
+        content: "Extra Large Screen (>1199px)"; } }
+
+/*********************
+Center text on mobile
+**********************/
+@media only screen and (max-width: 767px) {
+  .center-on-small-only {
+    text-align: center; } }
+
 .row {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2078,10 +2187,7 @@ For you to set responsive layouts, just add `.col` class plus any class prefix f
       -ms-flex-direction: row;
           flex-direction: row;
   -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 20px; }
+      flex-wrap: wrap; }
   .row:after {
     content: "";
     display: table;
@@ -2268,15 +2374,10 @@ For you to set responsive layouts, just add `.col` class plus any class prefix f
   .row .col {
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
+    padding: 0 0.75rem;
     -webkit-box-flex: 0;
         -ms-flex: 0 0 auto;
-            flex: 0 0 auto;
-    padding: 0 0.75rem; }
-    .row .col .reverse {
-      -webkit-box-orient: vertical;
-      -webkit-box-direction: reverse;
-          -ms-flex-direction: column-reverse;
-              flex-direction: column-reverse; }
+            flex: 0 0 auto; }
     .row .col.xs1 {
       -ms-flex-preferred-size: 8.33333%;
           flex-basis: 8.33333%;
@@ -2726,139 +2827,11 @@ For you to set responsive layouts, just add `.col` class plus any class prefix f
         -webkit-box-ordinal-group: initial;
             -ms-flex-order: initial;
                 order: initial; } }
-
-/*********************
-Center text on mobile
-**********************/
-@media only screen and (max-width: 767px) {
-  .center-on-small-only {
-    text-align: center; } }
-
-/*********************
-Media Query Classes
-**********************/
-@media only screen and (max-width: 575px) {
-  .hide-on-extra-small-only, .hide-on-extra-small-and-down {
-    display: none !important; } }
-
-@media only screen and (min-width: 576px) and (max-width: 767px) {
-  .hide-on-small-only {
-    display: none !important; } }
-
-@media only screen and (max-width: 767px) {
-  .hide-on-small-and-down {
-    display: none !important; } }
-
-@media only screen and (min-width: 576px) {
-  .hide-on-small-and-up {
-    display: none !important; } }
-
-@media only screen and (min-width: 768px) and (max-width: 991px) {
-  .hide-on-med-only {
-    display: none !important; } }
-
-@media only screen and (max-width: 991px) {
-  .hide-on-med-and-down {
-    display: none !important; } }
-
-@media only screen and (min-width: 768px) {
-  .hide-on-med-and-up {
-    display: none !important; } }
-
-@media only screen and (min-width: 992px) and (max-width: 1199px) {
-  .hide-on-large-only {
-    display: none !important; } }
-
-@media only screen and (max-width: 1199px) {
-  .hide-on-large-and-down {
-    display: none !important; } }
-
-@media only screen and (min-width: 992px) {
-  .hide-on-large-and-up {
-    display: none !important; } }
-
-@media only screen and (min-width: 1200px) {
-  .hide-on-extra-large-only, .hide-on-extra-large-and-up {
-    display: none !important; } }
-
-@media only screen and (max-width: 575px) {
-  .show-on-extra-small-only, .show-on-extra-small-and-down {
-    display: block !important; } }
-
-@media only screen and (min-width: 576px) and (max-width: 767px) {
-  .show-on-small-only {
-    display: block !important; } }
-
-@media only screen and (max-width: 767px) {
-  .show-on-small-and-down {
-    display: block !important; } }
-
-@media only screen and (min-width: 576px) {
-  .show-on-small-and-up {
-    display: block !important; } }
-
-@media only screen and (min-width: 768px) and (max-width: 991px) {
-  .show-on-med-only {
-    display: block !important; } }
-
-@media only screen and (max-width: 991px) {
-  .show-on-med-and-down {
-    display: block !important; } }
-
-@media only screen and (min-width: 768px) {
-  .show-on-med-and-up {
-    display: block !important; } }
-
-@media only screen and (min-width: 992px) and (max-width: 1199px) {
-  .show-on-large-only {
-    display: block !important; } }
-
-@media only screen and (max-width: 1199px) {
-  .show-on-large-and-down {
-    display: block !important; } }
-
-@media only screen and (min-width: 992px) {
-  .show-on-large-and-up {
-    display: block !important; } }
-
-@media only screen and (min-width: 1200px) {
-  .show-on-extra-large-only, .show-on-extra-large-and-up {
-    display: block !important; } }
-
-.screen-detector {
-  pointer-events: none;
-  position: absolute;
-  left: -99999px;
-  bottom: -99999px; }
-  .screen-detector::after {
-    position: fixed;
-    pointer-events: none;
-    background-color: black;
-    color: white;
-    content: "Something's really wrong is happenning and you should call the CIA...";
-    padding: 3px 10px;
-    bottom: 0;
-    right: 0;
-    z-index: 99999999999999999999999999;
-    -webkit-user-select: none;
-       -moz-user-select: none;
-        -ms-user-select: none;
-            user-select: none; }
-    @media only screen and (max-width: 575px) {
-      .screen-detector::after {
-        content: "Extra Small Screen (<576px)"; } }
-    @media only screen and (min-width: 576px) and (max-width: 767px) {
-      .screen-detector::after {
-        content: "Small Screen (<768px)"; } }
-    @media only screen and (min-width: 768px) and (max-width: 991px) {
-      .screen-detector::after {
-        content: "Medium Screen (<992px)"; } }
-    @media only screen and (min-width: 992px) and (max-width: 1199px) {
-      .screen-detector::after {
-        content: "Large Screen (<1201px)"; } }
-    @media only screen and (min-width: 1200px) {
-      .screen-detector::after {
-        content: "Extra Large Screen (>1199px)"; } }
+    .row .col .reverse {
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: reverse;
+          -ms-flex-direction: column-reverse;
+              flex-direction: column-reverse; }
 
 nav {
   color: #fff;
@@ -3013,10 +2986,10 @@ html {
   @media only screen and (min-width: 0) {
     html {
       font-size: 14px; } }
-  @media only screen and (min-width: 991px) {
+  @media only screen and (min-width: 992px) {
     html {
       font-size: 14.5px; } }
-  @media only screen and (min-width: 1199px) {
+  @media only screen and (min-width: 992px) {
     html {
       font-size: 15px; } }
 
@@ -3069,7 +3042,7 @@ small {
 .weight-light {
   font-weight: 300; }
 
-.weight-medium, strong {
+.weight-medium {
   font-weight: 500; }
 
 .weight-bold {
@@ -3077,6 +3050,18 @@ small {
 
 .weight-black {
   font-weight: 900; }
+
+strong {
+  font-weight: 500; }
+
+.uppercase {
+  text-transform: uppercase; }
+
+.lowercase {
+  text-transform: lowercase; }
+
+.captalize {
+  text-transform: capitalize; }
 
 .flow-text {
   font-weight: 300; }
