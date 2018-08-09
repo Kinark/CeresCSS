@@ -85,15 +85,11 @@ $input-disabled-solid-color: #949494 !default;
 $input-disabled-border: 1px dotted $input-disabled-color !default;
 $placeholder-text-color: lighten($input-border-color, 20%) !default;
 
-// Radio Buttons
-$radio-fill-color: $primary-color !default;
-$radio-empty-color: #5a5a5a !default;
-$radio-border: 2px solid $radio-fill-color !default;
-
-// Range
-$range-height: 14px !default;
-$range-width: 14px !default;
-$track-height: 3px !default;
+// Radio/Checkbox Buttons
+$checkers-border-color: color("blue-grey", "lighten-4") !default;
+$checkers-hover-color: color("blue-grey", "lighten-2") !default;
+$checkers-fill-color: $primary-color !default;
+$checkers-size: 16px !default;
 
 // Select
 $select-border: 1px solid #f2f2f2 !default;
@@ -105,13 +101,6 @@ $select-option-selected: rgba(0,0,0,.03) !default;
 $select-padding: 5px !default;
 $select-radius: 2px !default;
 $select-disabled-color: rgba(0,0,0,.3) !default;
-
-// Switches
-$switch-bg-color: $primary-color !default;
-$switch-checked-lever-bg: desaturate(lighten($switch-bg-color, 25%), 25%) !default;
-$switch-unchecked-bg: #F1F1F1 !default;
-$switch-unchecked-lever-bg: rgba(0,0,0,.38) !default;
-$switch-radius: 15px !default;
 
 // 7. Grid
 // ==========================================================================

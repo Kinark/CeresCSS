@@ -1,7 +1,3 @@
-$(document).ready(function () {
-   $('select').niceSelect();
-});
-
 var $buoop = { notify: { i: -5 }, api: 5 };
 function $buo_f() {
    var e = document.createElement("script");

@@ -2149,16 +2149,16 @@ Media Query Classes
             user-select: none; }
     @media only screen and (max-width: 575px) {
       .screen-detector::after {
-        content: "Extra Small Screen (<576px)"; } }
+        content: "Extra Small Screen (<=575px)"; } }
     @media only screen and (min-width: 576px) and (max-width: 767px) {
       .screen-detector::after {
-        content: "Small Screen (<768px)"; } }
+        content: "Small Screen (>=576px && <=767px)"; } }
     @media only screen and (min-width: 768px) and (max-width: 991px) {
       .screen-detector::after {
-        content: "Medium Screen (<992px)"; } }
+        content: "Medium Screen (>=768px && <=991px)"; } }
     @media only screen and (min-width: 992px) and (max-width: 1199px) {
       .screen-detector::after {
-        content: "Large Screen (<1201px)"; } }
+        content: "Large Screen (>=992px && <=1199px)"; } }
     @media only screen and (min-width: 1200px) {
       .screen-detector::after {
         content: "Extra Large Screen (>1199px)"; } }
@@ -3260,8 +3260,7 @@ Utility Classes
 .right {
   float: right !important; }
 
-.no-select, input[type=range],
-input[type=range] + .thumb {
+.no-select {
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
@@ -3679,7 +3678,7 @@ input[type=datetime-local]:not(.browser-default),
 input[type=tel]:not(.browser-default),
 input[type=number]:not(.browser-default),
 input[type=search]:not(.browser-default),
-textarea.materialize-textarea, select, .nice-select {
+textarea.materialize-textarea, select:not(.browser-default) {
   -webkit-box-shadow: none;
           box-shadow: none;
   display: block;
@@ -3718,7 +3717,7 @@ textarea.materialize-textarea, select, .nice-select {
   input[type=tel]:disabled:not(.browser-default),
   input[type=number]:disabled:not(.browser-default),
   input[type=search]:disabled:not(.browser-default),
-  textarea.materialize-textarea:disabled, select:disabled, .nice-select:disabled, input[readonly="readonly"]:not([type]),
+  textarea.materialize-textarea:disabled, select:disabled:not(.browser-default), input[readonly="readonly"]:not([type]),
   input[readonly="readonly"][type=text]:not(.browser-default),
   input[readonly="readonly"][type=password]:not(.browser-default),
   input[readonly="readonly"][type=email]:not(.browser-default),
@@ -3730,7 +3729,7 @@ textarea.materialize-textarea, select, .nice-select {
   input[readonly="readonly"][type=tel]:not(.browser-default),
   input[readonly="readonly"][type=number]:not(.browser-default),
   input[readonly="readonly"][type=search]:not(.browser-default),
-  textarea[readonly="readonly"].materialize-textarea, select[readonly="readonly"], [readonly="readonly"].nice-select {
+  textarea[readonly="readonly"].materialize-textarea, select[readonly="readonly"]:not(.browser-default) {
     color: rgba(0, 0, 0, 0.42);
     border: 1px dotted rgba(0, 0, 0, 0.42); }
   input:disabled:not([type]) + label,
@@ -3745,7 +3744,7 @@ textarea.materialize-textarea, select, .nice-select {
   input[type=tel]:disabled:not(.browser-default) + label,
   input[type=number]:disabled:not(.browser-default) + label,
   input[type=search]:disabled:not(.browser-default) + label,
-  textarea.materialize-textarea:disabled + label, select:disabled + label, .nice-select:disabled + label, input:disabled:not([type]) + .prefix,
+  textarea.materialize-textarea:disabled + label, select:disabled:not(.browser-default) + label, input:disabled:not([type]) + .prefix,
   input[type=text]:disabled:not(.browser-default) + .prefix,
   input[type=password]:disabled:not(.browser-default) + .prefix,
   input[type=email]:disabled:not(.browser-default) + .prefix,
@@ -3757,7 +3756,7 @@ textarea.materialize-textarea, select, .nice-select {
   input[type=tel]:disabled:not(.browser-default) + .prefix,
   input[type=number]:disabled:not(.browser-default) + .prefix,
   input[type=search]:disabled:not(.browser-default) + .prefix,
-  textarea.materialize-textarea:disabled + .prefix, select:disabled + .prefix, .nice-select:disabled + .prefix, input:disabled:not([type]) + .prefix + label,
+  textarea.materialize-textarea:disabled + .prefix, select:disabled:not(.browser-default) + .prefix, input:disabled:not([type]) + .prefix + label,
   input[type=text]:disabled:not(.browser-default) + .prefix + label,
   input[type=password]:disabled:not(.browser-default) + .prefix + label,
   input[type=email]:disabled:not(.browser-default) + .prefix + label,
@@ -3769,7 +3768,7 @@ textarea.materialize-textarea, select, .nice-select {
   input[type=tel]:disabled:not(.browser-default) + .prefix + label,
   input[type=number]:disabled:not(.browser-default) + .prefix + label,
   input[type=search]:disabled:not(.browser-default) + .prefix + label,
-  textarea.materialize-textarea:disabled + .prefix + label, select:disabled + .prefix + label, .nice-select:disabled + .prefix + label, input[readonly="readonly"]:not([type]) + label,
+  textarea.materialize-textarea:disabled + .prefix + label, select:disabled:not(.browser-default) + .prefix + label, input[readonly="readonly"]:not([type]) + label,
   input[readonly="readonly"][type=text]:not(.browser-default) + label,
   input[readonly="readonly"][type=password]:not(.browser-default) + label,
   input[readonly="readonly"][type=email]:not(.browser-default) + label,
@@ -3781,7 +3780,7 @@ textarea.materialize-textarea, select, .nice-select {
   input[readonly="readonly"][type=tel]:not(.browser-default) + label,
   input[readonly="readonly"][type=number]:not(.browser-default) + label,
   input[readonly="readonly"][type=search]:not(.browser-default) + label,
-  textarea[readonly="readonly"].materialize-textarea + label, select[readonly="readonly"] + label, [readonly="readonly"].nice-select + label, input[readonly="readonly"]:not([type]) + .prefix,
+  textarea[readonly="readonly"].materialize-textarea + label, select[readonly="readonly"]:not(.browser-default) + label, input[readonly="readonly"]:not([type]) + .prefix,
   input[readonly="readonly"][type=text]:not(.browser-default) + .prefix,
   input[readonly="readonly"][type=password]:not(.browser-default) + .prefix,
   input[readonly="readonly"][type=email]:not(.browser-default) + .prefix,
@@ -3793,7 +3792,7 @@ textarea.materialize-textarea, select, .nice-select {
   input[readonly="readonly"][type=tel]:not(.browser-default) + .prefix,
   input[readonly="readonly"][type=number]:not(.browser-default) + .prefix,
   input[readonly="readonly"][type=search]:not(.browser-default) + .prefix,
-  textarea[readonly="readonly"].materialize-textarea + .prefix, select[readonly="readonly"] + .prefix, [readonly="readonly"].nice-select + .prefix, input[readonly="readonly"]:not([type]) + .prefix + label,
+  textarea[readonly="readonly"].materialize-textarea + .prefix, select[readonly="readonly"]:not(.browser-default) + .prefix, input[readonly="readonly"]:not([type]) + .prefix + label,
   input[readonly="readonly"][type=text]:not(.browser-default) + .prefix + label,
   input[readonly="readonly"][type=password]:not(.browser-default) + .prefix + label,
   input[readonly="readonly"][type=email]:not(.browser-default) + .prefix + label,
@@ -3805,7 +3804,7 @@ textarea.materialize-textarea, select, .nice-select {
   input[readonly="readonly"][type=tel]:not(.browser-default) + .prefix + label,
   input[readonly="readonly"][type=number]:not(.browser-default) + .prefix + label,
   input[readonly="readonly"][type=search]:not(.browser-default) + .prefix + label,
-  textarea[readonly="readonly"].materialize-textarea + .prefix + label, select[readonly="readonly"] + .prefix + label, [readonly="readonly"].nice-select + .prefix + label {
+  textarea[readonly="readonly"].materialize-textarea + .prefix + label, select[readonly="readonly"]:not(.browser-default) + .prefix + label {
     color: rgba(0, 0, 0, 0.42); }
   input:hover:not([readonly]):not([type]),
   input[type=text]:hover:not([readonly]):not(.browser-default),
@@ -3819,7 +3818,7 @@ textarea.materialize-textarea, select, .nice-select {
   input[type=tel]:hover:not([readonly]):not(.browser-default),
   input[type=number]:hover:not([readonly]):not(.browser-default),
   input[type=search]:hover:not([readonly]):not(.browser-default),
-  textarea.materialize-textarea:hover:not([readonly]), select:hover:not([readonly]), .nice-select:hover:not([readonly]) {
+  textarea.materialize-textarea:hover:not([readonly]), select:hover:not([readonly]):not(.browser-default) {
     border-color: #90a4ae; }
   input:hover:not([readonly]):not([type]) + label,
   input[type=text]:hover:not([readonly]):not(.browser-default) + label,
@@ -3833,7 +3832,7 @@ textarea.materialize-textarea, select, .nice-select {
   input[type=tel]:hover:not([readonly]):not(.browser-default) + label,
   input[type=number]:hover:not([readonly]):not(.browser-default) + label,
   input[type=search]:hover:not([readonly]):not(.browser-default) + label,
-  textarea.materialize-textarea:hover:not([readonly]) + label, select:hover:not([readonly]) + label, .nice-select:hover:not([readonly]) + label, input:hover:not([readonly]):not([type]) + .prefix,
+  textarea.materialize-textarea:hover:not([readonly]) + label, select:hover:not([readonly]):not(.browser-default) + label, input:hover:not([readonly]):not([type]) + .prefix,
   input[type=text]:hover:not([readonly]):not(.browser-default) + .prefix,
   input[type=password]:hover:not([readonly]):not(.browser-default) + .prefix,
   input[type=email]:hover:not([readonly]):not(.browser-default) + .prefix,
@@ -3845,7 +3844,7 @@ textarea.materialize-textarea, select, .nice-select {
   input[type=tel]:hover:not([readonly]):not(.browser-default) + .prefix,
   input[type=number]:hover:not([readonly]):not(.browser-default) + .prefix,
   input[type=search]:hover:not([readonly]):not(.browser-default) + .prefix,
-  textarea.materialize-textarea:hover:not([readonly]) + .prefix, select:hover:not([readonly]) + .prefix, .nice-select:hover:not([readonly]) + .prefix, input:hover:not([readonly]):not([type]) + .prefix + label,
+  textarea.materialize-textarea:hover:not([readonly]) + .prefix, select:hover:not([readonly]):not(.browser-default) + .prefix, input:hover:not([readonly]):not([type]) + .prefix + label,
   input[type=text]:hover:not([readonly]):not(.browser-default) + .prefix + label,
   input[type=password]:hover:not([readonly]):not(.browser-default) + .prefix + label,
   input[type=email]:hover:not([readonly]):not(.browser-default) + .prefix + label,
@@ -3857,7 +3856,7 @@ textarea.materialize-textarea, select, .nice-select {
   input[type=tel]:hover:not([readonly]):not(.browser-default) + .prefix + label,
   input[type=number]:hover:not([readonly]):not(.browser-default) + .prefix + label,
   input[type=search]:hover:not([readonly]):not(.browser-default) + .prefix + label,
-  textarea.materialize-textarea:hover:not([readonly]) + .prefix + label, select:hover:not([readonly]) + .prefix + label, .nice-select:hover:not([readonly]) + .prefix + label {
+  textarea.materialize-textarea:hover:not([readonly]) + .prefix + label, select:hover:not([readonly]):not(.browser-default) + .prefix + label {
     color: #46575f; }
   input:focus:not([readonly]):not([type]),
   input[type=text]:focus:not([readonly]):not(.browser-default),
@@ -3871,7 +3870,7 @@ textarea.materialize-textarea, select, .nice-select {
   input[type=tel]:focus:not([readonly]):not(.browser-default),
   input[type=number]:focus:not([readonly]):not(.browser-default),
   input[type=search]:focus:not([readonly]):not(.browser-default),
-  textarea.materialize-textarea:focus:not([readonly]), select:focus:not([readonly]), .nice-select:focus:not([readonly]) {
+  textarea.materialize-textarea:focus:not([readonly]), select:focus:not([readonly]):not(.browser-default) {
     border-color: #40c4ff;
     outline: none; }
   input:focus:not([readonly]):not([type]) + label,
@@ -3886,7 +3885,7 @@ textarea.materialize-textarea, select, .nice-select {
   input[type=tel]:focus:not([readonly]):not(.browser-default) + label,
   input[type=number]:focus:not([readonly]):not(.browser-default) + label,
   input[type=search]:focus:not([readonly]):not(.browser-default) + label,
-  textarea.materialize-textarea:focus:not([readonly]) + label, select:focus:not([readonly]) + label, .nice-select:focus:not([readonly]) + label, input:focus:not([readonly]):not([type]) + .prefix,
+  textarea.materialize-textarea:focus:not([readonly]) + label, select:focus:not([readonly]):not(.browser-default) + label, input:focus:not([readonly]):not([type]) + .prefix,
   input[type=text]:focus:not([readonly]):not(.browser-default) + .prefix,
   input[type=password]:focus:not([readonly]):not(.browser-default) + .prefix,
   input[type=email]:focus:not([readonly]):not(.browser-default) + .prefix,
@@ -3898,7 +3897,7 @@ textarea.materialize-textarea, select, .nice-select {
   input[type=tel]:focus:not([readonly]):not(.browser-default) + .prefix,
   input[type=number]:focus:not([readonly]):not(.browser-default) + .prefix,
   input[type=search]:focus:not([readonly]):not(.browser-default) + .prefix,
-  textarea.materialize-textarea:focus:not([readonly]) + .prefix, select:focus:not([readonly]) + .prefix, .nice-select:focus:not([readonly]) + .prefix, input:focus:not([readonly]):not([type]) + .prefix + label,
+  textarea.materialize-textarea:focus:not([readonly]) + .prefix, select:focus:not([readonly]):not(.browser-default) + .prefix, input:focus:not([readonly]):not([type]) + .prefix + label,
   input[type=text]:focus:not([readonly]):not(.browser-default) + .prefix + label,
   input[type=password]:focus:not([readonly]):not(.browser-default) + .prefix + label,
   input[type=email]:focus:not([readonly]):not(.browser-default) + .prefix + label,
@@ -3910,7 +3909,7 @@ textarea.materialize-textarea, select, .nice-select {
   input[type=tel]:focus:not([readonly]):not(.browser-default) + .prefix + label,
   input[type=number]:focus:not([readonly]):not(.browser-default) + .prefix + label,
   input[type=search]:focus:not([readonly]):not(.browser-default) + .prefix + label,
-  textarea.materialize-textarea:focus:not([readonly]) + .prefix + label, select:focus:not([readonly]) + .prefix + label, .nice-select:focus:not([readonly]) + .prefix + label {
+  textarea.materialize-textarea:focus:not([readonly]) + .prefix + label, select:focus:not([readonly]):not(.browser-default) + .prefix + label {
     color: #40c4ff; }
 
 .input-field {
@@ -3975,606 +3974,115 @@ textarea {
 
 /* Radio Buttons
    ========================================================================== */
-[type="radio"]:not(:checked),
-[type="radio"]:checked {
+[type="radio"] {
   position: absolute;
   opacity: 0;
   pointer-events: none; }
-
-[type="radio"]:not(:checked) + span,
-[type="radio"]:checked + span {
-  position: relative;
-  padding-left: 35px;
-  cursor: pointer;
-  display: inline-block;
-  height: 25px;
-  line-height: 25px;
-  font-size: 1rem;
-  -webkit-transition: .28s ease;
-  transition: .28s ease;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none; }
-
-[type="radio"] + span:before,
-[type="radio"] + span:after {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0;
-  margin: 4px;
-  width: 16px;
-  height: 16px;
-  z-index: 0;
-  -webkit-transition: .28s ease;
-  transition: .28s ease; }
-
-/* Unchecked styles */
-[type="radio"]:not(:checked) + span:before,
-[type="radio"]:not(:checked) + span:after,
-[type="radio"]:checked + span:before,
-[type="radio"]:checked + span:after,
-[type="radio"].with-gap:checked + span:before,
-[type="radio"].with-gap:checked + span:after {
-  border-radius: 50%; }
-
-[type="radio"]:not(:checked) + span:before,
-[type="radio"]:not(:checked) + span:after {
-  border: 2px solid #5a5a5a; }
-
-[type="radio"]:not(:checked) + span:after {
-  -webkit-transform: scale(0);
-          transform: scale(0); }
-
-/* Checked styles */
-[type="radio"]:checked + span:before {
-  border: 2px solid transparent; }
-
-[type="radio"]:checked + span:after,
-[type="radio"].with-gap:checked + span:before,
-[type="radio"].with-gap:checked + span:after {
-  border: 2px solid #40c4ff; }
-
-[type="radio"]:checked + span:after,
-[type="radio"].with-gap:checked + span:after {
-  background-color: #40c4ff; }
-
-[type="radio"]:checked + span:after {
-  -webkit-transform: scale(1.02);
-          transform: scale(1.02); }
-
-/* Radio With gap */
-[type="radio"].with-gap:checked + span:after {
-  -webkit-transform: scale(0.5);
-          transform: scale(0.5); }
-
-/* Focused styles */
-[type="radio"].tabbed:focus + span:before {
-  -webkit-box-shadow: 0 0 0 10px rgba(0, 0, 0, 0.1);
-          box-shadow: 0 0 0 10px rgba(0, 0, 0, 0.1); }
-
-/* Disabled Radio With gap */
-[type="radio"].with-gap:disabled:checked + span:before {
-  border: 2px solid rgba(0, 0, 0, 0.42); }
-
-[type="radio"].with-gap:disabled:checked + span:after {
-  border: none;
-  background-color: rgba(0, 0, 0, 0.42); }
-
-/* Disabled style */
-[type="radio"]:disabled:not(:checked) + span:before,
-[type="radio"]:disabled:checked + span:before {
-  background-color: transparent;
-  border-color: rgba(0, 0, 0, 0.42); }
-
-[type="radio"]:disabled + span {
-  color: rgba(0, 0, 0, 0.42); }
-
-[type="radio"]:disabled:not(:checked) + span:before {
-  border-color: rgba(0, 0, 0, 0.42); }
-
-[type="radio"]:disabled:checked + span:after {
-  background-color: rgba(0, 0, 0, 0.42);
-  border-color: #949494; }
+  [type="radio"] + label {
+    position: relative;
+    display: block;
+    position: relative;
+    padding-left: calc(16px + .6rem);
+    cursor: pointer; }
+    [type="radio"] + label::before {
+      border-radius: 50%;
+      content: '';
+      position: absolute;
+      top: calc(50% - 16px/2);
+      left: 0;
+      width: 16px;
+      height: 16px;
+      border: 1px solid #cfd8dc;
+      -webkit-transition: .25s border-color;
+      transition: .25s border-color; }
+    [type="radio"] + label:hover::before {
+      border-color: #90a4ae; }
+    [type="radio"] + label::after {
+      border-radius: 50%;
+      content: '';
+      position: absolute;
+      top: calc(50% - 16px/4);
+      left: 4px;
+      width: 8px;
+      height: 8px;
+      opacity: 0;
+      border: solid 0px #40c4ff;
+      -webkit-transition: .25s border-width, .25s opacity;
+      transition: .25s border-width, .25s opacity; }
+  [type="radio"]:checked + label::before {
+    border-color: #40c4ff !important; }
+  [type="radio"]:checked + label::after {
+    border-width: 4px;
+    opacity: 1; }
 
 /* Checkboxes
    ========================================================================== */
-/* CUSTOM CSS CHECKBOXES */
-form p {
-  margin-bottom: 10px;
-  text-align: left; }
-
-form p:last-child {
-  margin-bottom: 0; }
-
-/* Remove default checkbox */
-[type="checkbox"]:not(:checked),
-[type="checkbox"]:checked {
+[type="checkbox"] {
   position: absolute;
   opacity: 0;
   pointer-events: none; }
-
-[type="checkbox"] {
-  /* checkbox aspect */ }
-  [type="checkbox"] + span:not(.lever) {
+  [type="checkbox"] + label {
     position: relative;
-    padding-left: 35px;
-    cursor: pointer;
-    display: inline-block;
-    height: 25px;
-    line-height: 25px;
-    font-size: 1rem;
-    -webkit-user-select: none;
-       -moz-user-select: none;
-        -ms-user-select: none;
-            user-select: none; }
-  [type="checkbox"] + span:not(.lever):before,
-  [type="checkbox"]:not(.filled-in) + span:not(.lever):after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 18px;
-    height: 18px;
-    z-index: 0;
-    border: 2px solid #5a5a5a;
-    border-radius: 1px;
-    margin-top: 3px;
-    -webkit-transition: .2s;
-    transition: .2s; }
-  [type="checkbox"]:not(.filled-in) + span:not(.lever):after {
-    border: 0;
-    -webkit-transform: scale(0);
-            transform: scale(0); }
-  [type="checkbox"]:not(:checked):disabled + span:not(.lever):before {
-    border: none;
-    background-color: rgba(0, 0, 0, 0.42); }
-  [type="checkbox"].tabbed:focus + span:not(.lever):after {
-    -webkit-transform: scale(1);
-            transform: scale(1);
-    border: 0;
-    border-radius: 50%;
-    -webkit-box-shadow: 0 0 0 10px rgba(0, 0, 0, 0.1);
-            box-shadow: 0 0 0 10px rgba(0, 0, 0, 0.1);
-    background-color: rgba(0, 0, 0, 0.1); }
+    display: block;
+    position: relative;
+    padding-left: calc(16px + .6rem);
+    cursor: pointer; }
+    [type="checkbox"] + label::before {
+      border-radius: 15%;
+      content: '';
+      position: absolute;
+      top: calc(50% - 16px/2);
+      left: 0;
+      width: 16px;
+      height: 16px;
+      border: 1px solid #cfd8dc;
+      -webkit-transition: .25s border-color;
+      transition: .25s border-color; }
+    [type="checkbox"] + label:hover::before {
+      border-color: #90a4ae; }
+    [type="checkbox"] + label::after {
+      border-radius: 15%;
+      content: '';
+      position: absolute;
+      top: calc(50% - 16px/4);
+      left: 4px;
+      width: 8px;
+      height: 8px;
+      opacity: 0;
+      border: solid 0px #40c4ff;
+      -webkit-transition: .25s border-width, .25s opacity;
+      transition: .25s border-width, .25s opacity; }
+  [type="checkbox"]:checked + label::before {
+    border-color: #40c4ff !important; }
+  [type="checkbox"]:checked + label::after {
+    border-width: 4px;
+    opacity: 1; }
 
-[type="checkbox"]:checked + span:not(.lever):before {
-  top: -4px;
-  left: -5px;
-  width: 12px;
-  height: 22px;
-  border-top: 2px solid transparent;
-  border-left: 2px solid transparent;
-  border-right: 2px solid #40c4ff;
-  border-bottom: 2px solid #40c4ff;
-  -webkit-transform: rotate(40deg);
-          transform: rotate(40deg);
-  -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
-  -webkit-transform-origin: 100% 100%;
-          transform-origin: 100% 100%; }
-
-[type="checkbox"]:checked:disabled + span:before {
-  border-right: 2px solid rgba(0, 0, 0, 0.42);
-  border-bottom: 2px solid rgba(0, 0, 0, 0.42); }
-
-/* Indeterminate checkbox */
-[type="checkbox"]:indeterminate + span:not(.lever):before {
-  top: -11px;
-  left: -12px;
-  width: 10px;
-  height: 22px;
-  border-top: none;
-  border-left: none;
-  border-right: 2px solid #40c4ff;
-  border-bottom: none;
-  -webkit-transform: rotate(90deg);
-          transform: rotate(90deg);
-  -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
-  -webkit-transform-origin: 100% 100%;
-          transform-origin: 100% 100%; }
-
-[type="checkbox"]:indeterminate:disabled + span:not(.lever):before {
-  border-right: 2px solid rgba(0, 0, 0, 0.42);
-  background-color: transparent; }
-
-[type="checkbox"].filled-in + span:not(.lever):after {
-  border-radius: 2px; }
-
-[type="checkbox"].filled-in + span:not(.lever):before,
-[type="checkbox"].filled-in + span:not(.lever):after {
-  content: '';
-  left: 0;
-  position: absolute;
-  /* .1s delay is for check animation */
-  -webkit-transition: border .25s, background-color .25s, width .20s .1s, height .20s .1s, top .20s .1s, left .20s .1s;
-  transition: border .25s, background-color .25s, width .20s .1s, height .20s .1s, top .20s .1s, left .20s .1s;
-  z-index: 1; }
-
-[type="checkbox"].filled-in:not(:checked) + span:not(.lever):before {
-  width: 0;
-  height: 0;
-  border: 3px solid transparent;
-  left: 6px;
-  top: 10px;
-  -webkit-transform: rotateZ(37deg);
-          transform: rotateZ(37deg);
-  -webkit-transform-origin: 100% 100%;
-          transform-origin: 100% 100%; }
-
-[type="checkbox"].filled-in:not(:checked) + span:not(.lever):after {
-  height: 20px;
-  width: 20px;
-  background-color: transparent;
-  border: 2px solid #5a5a5a;
-  top: 0px;
-  z-index: 0; }
-
-[type="checkbox"].filled-in:checked + span:not(.lever):before {
-  top: 0;
-  left: 1px;
-  width: 8px;
-  height: 13px;
-  border-top: 2px solid transparent;
-  border-left: 2px solid transparent;
-  border-right: 2px solid #fff;
-  border-bottom: 2px solid #fff;
-  -webkit-transform: rotateZ(37deg);
-          transform: rotateZ(37deg);
-  -webkit-transform-origin: 100% 100%;
-          transform-origin: 100% 100%; }
-
-[type="checkbox"].filled-in:checked + span:not(.lever):after {
-  top: 0;
-  width: 20px;
-  height: 20px;
-  border: 2px solid #26a69a;
-  background-color: #26a69a;
-  z-index: 0; }
-
-[type="checkbox"].filled-in.tabbed:focus + span:not(.lever):after {
-  border-radius: 2px;
-  border-color: #5a5a5a;
-  background-color: rgba(0, 0, 0, 0.1); }
-
-[type="checkbox"].filled-in.tabbed:checked:focus + span:not(.lever):after {
-  border-radius: 2px;
-  background-color: #26a69a;
-  border-color: #26a69a; }
-
-[type="checkbox"].filled-in:disabled:not(:checked) + span:not(.lever):before {
-  background-color: transparent;
-  border: 2px solid transparent; }
-
-[type="checkbox"].filled-in:disabled:not(:checked) + span:not(.lever):after {
-  border-color: transparent;
-  background-color: #949494; }
-
-[type="checkbox"].filled-in:disabled:checked + span:not(.lever):before {
-  background-color: transparent; }
-
-[type="checkbox"].filled-in:disabled:checked + span:not(.lever):after {
-  background-color: #949494;
-  border-color: #949494; }
-
-/* Switch
-   ========================================================================== */
-.switch,
-.switch * {
-  -webkit-tap-highlight-color: transparent;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none; }
-
-.switch label {
+/* Select Field
+========================================================================== */
+select:not(.browser-default) {
+  text-transform: none;
   cursor: pointer; }
 
-.switch label input[type=checkbox] {
-  opacity: 0;
-  width: 0;
-  height: 0; }
-  .switch label input[type=checkbox]:checked + .lever {
-    background-color: #c7e8f7; }
-    .switch label input[type=checkbox]:checked + .lever:before, .switch label input[type=checkbox]:checked + .lever:after {
-      left: 18px; }
-    .switch label input[type=checkbox]:checked + .lever:after {
-      background-color: #40c4ff; }
-
-.switch label .lever {
+.input-field.select::before {
   content: "";
-  display: inline-block;
-  position: relative;
-  width: 36px;
-  height: 14px;
-  background-color: rgba(0, 0, 0, 0.38);
-  border-radius: 15px;
-  margin-right: 10px;
-  -webkit-transition: background 0.3s ease;
-  transition: background 0.3s ease;
-  vertical-align: middle;
-  margin: 0 16px; }
-  .switch label .lever:before, .switch label .lever:after {
-    content: "";
-    position: absolute;
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    left: 0;
-    top: -3px;
-    -webkit-transition: left 0.3s ease, background .3s ease, -webkit-box-shadow 0.1s ease, -webkit-transform .1s ease;
-    transition: left 0.3s ease, background .3s ease, -webkit-box-shadow 0.1s ease, -webkit-transform .1s ease;
-    transition: left 0.3s ease, background .3s ease, box-shadow 0.1s ease, transform .1s ease;
-    transition: left 0.3s ease, background .3s ease, box-shadow 0.1s ease, transform .1s ease, -webkit-box-shadow 0.1s ease, -webkit-transform .1s ease; }
-  .switch label .lever:before {
-    background-color: rgba(64, 196, 255, 0.15); }
-  .switch label .lever:after {
-    background-color: #F1F1F1;
-    -webkit-box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
-            box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12); }
-
-input[type=checkbox]:checked:not(:disabled) ~ .lever:active::before, input[type=checkbox]:checked:not(:disabled) ~ .lever.nice-select.open::before,
-input[type=checkbox]:checked:not(:disabled).tabbed:focus ~ .lever::before {
-  -webkit-transform: scale(2.4);
-          transform: scale(2.4);
-  background-color: rgba(64, 196, 255, 0.15); }
-
-input[type=checkbox]:not(:disabled) ~ .lever:active:before, input[type=checkbox]:not(:disabled) ~ .lever.nice-select.open:before,
-input[type=checkbox]:not(:disabled).tabbed:focus ~ .lever::before {
-  -webkit-transform: scale(2.4);
-          transform: scale(2.4);
-  background-color: rgba(0, 0, 0, 0.08); }
-
-.switch input[type=checkbox][disabled] + .lever {
-  cursor: default;
-  background-color: rgba(0, 0, 0, 0.12); }
-
-.switch label input[type=checkbox][disabled] + .lever:after,
-.switch label input[type=checkbox][disabled]:checked + .lever:after {
-  background-color: #949494; }
-
-.nice-select {
-  cursor: pointer;
-  position: relative;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
-  white-space: nowrap;
-  width: 100%; }
-  .nice-select:hover {
-    border-color: #dbdbdb; }
-  .nice-select:active, .nice-select.open, .nice-select:focus {
-    border-color: #999; }
-  .nice-select:after {
-    border-bottom: 2px solid #999;
-    border-right: 2px solid #999;
-    content: '';
-    display: block;
-    height: 6px;
-    margin-top: -4px;
-    pointer-events: none;
-    position: absolute;
-    right: 12px;
-    top: 50%;
-    -webkit-transform-origin: 66% 66%;
-            transform-origin: 66% 66%;
-    -webkit-transform: rotate(45deg);
-            transform: rotate(45deg);
-    -webkit-transition: all 0.15s ease-in-out;
-    transition: all 0.15s ease-in-out;
-    width: 6px; }
-  .nice-select.open:after {
-    -webkit-transform: rotate(-135deg);
-            transform: rotate(-135deg); }
-  .nice-select.open .list {
-    opacity: 1;
-    pointer-events: auto;
-    -webkit-transform: scale(1) translateY(0);
-            transform: scale(1) translateY(0); }
-  .nice-select.disabled {
-    border-color: #ededed;
-    color: #999;
-    pointer-events: none; }
-    .nice-select.disabled:after {
-      border-color: #cccccc; }
-  .nice-select.right {
-    float: right; }
-    .nice-select.right .list {
-      left: auto;
-      right: 0; }
-  .nice-select .list {
-    background-color: #fff;
-    border-radius: 3px;
-    -webkit-box-shadow: 0 0 0 1px rgba(68, 68, 68, 0.11);
-            box-shadow: 0 0 0 1px rgba(68, 68, 68, 0.11);
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-    margin-top: 4px;
-    opacity: 0;
-    overflow: hidden;
-    padding: 0;
-    pointer-events: none;
-    position: absolute;
-    top: 100%;
-    left: 0 !important;
-    right: 0 !important;
-    -webkit-transform-origin: 50% 0;
-            transform-origin: 50% 0;
-    -webkit-transform: scale(0.75) translateY(-21px);
-            transform: scale(0.75) translateY(-21px);
-    -webkit-transition: all 0.2s cubic-bezier(0.5, 0, 0, 1.25), opacity 0.15s ease-out;
-    transition: all 0.2s cubic-bezier(0.5, 0, 0, 1.25), opacity 0.15s ease-out;
-    z-index: 9; }
-    .nice-select .list:hover .option:not(:hover) {
-      background-color: transparent !important; }
-  .nice-select .option {
-    cursor: pointer;
-    font-weight: 400;
-    line-height: 40px;
-    list-style: none;
-    min-height: 40px;
-    outline: none;
-    padding-left: 18px;
-    padding-right: 29px;
-    text-align: left;
-    -webkit-transition: all 0.2s;
-    transition: all 0.2s; }
-    .nice-select .option:hover, .nice-select .option.focus, .nice-select .option.selected.focus {
-      background-color: #f6f6f6; }
-    .nice-select .option.selected {
-      font-weight: bold; }
-    .nice-select .option.disabled {
-      background-color: transparent;
-      color: #999;
-      cursor: default; }
-
-.no-csspointerevents .nice-select .list {
-  display: none; }
-
-.no-csspointerevents .nice-select.open .list {
-  display: block; }
-
-/* Range
-   ========================================================================== */
-.range-field {
-  position: relative; }
-
-input[type=range],
-input[type=range] + .thumb {
-  cursor: pointer; }
-
-input[type=range] {
-  position: relative;
-  background-color: transparent;
-  border: none;
-  outline: none;
-  width: 100%;
-  margin: 15px 0;
-  padding: 0; }
-  input[type=range]:focus {
-    outline: none; }
-
-input[type=range] + .thumb {
+  height: 2px;
+  width: 7px;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+  background-color: #808080;
   position: absolute;
-  top: 10px;
-  left: 0;
-  border: none;
-  height: 0;
-  width: 0;
-  border-radius: 50%;
-  background-color: #40c4ff;
-  margin-left: 7px;
-  -webkit-transform-origin: 50% 50%;
-          transform-origin: 50% 50%;
+  right: 30px; }
+
+.input-field.select::after {
+  content: "";
+  height: 2px;
+  width: 7px;
   -webkit-transform: rotate(-45deg);
-          transform: rotate(-45deg); }
-  input[type=range] + .thumb .value {
-    display: block;
-    width: 30px;
-    text-align: center;
-    color: #40c4ff;
-    font-size: 0;
-    -webkit-transform: rotate(45deg);
-            transform: rotate(45deg); }
-  input[type=range] + .thumb.active {
-    border-radius: 50% 50% 50% 0; }
-    input[type=range] + .thumb.active .value {
-      color: #fff;
-      margin-left: -1px;
-      margin-top: 8px;
-      font-size: 10px; }
-
-input[type=range] {
-  -webkit-appearance: none; }
-
-input[type=range]::-webkit-slider-runnable-track {
-  height: 3px;
-  background: #c2c0c2;
-  border: none; }
-
-input[type=range]::-webkit-slider-thumb {
-  border: none;
-  height: 14px;
-  width: 14px;
-  border-radius: 50%;
-  background: #40c4ff;
-  -webkit-transition: -webkit-box-shadow .3s;
-  transition: -webkit-box-shadow .3s;
-  transition: box-shadow .3s;
-  transition: box-shadow .3s, -webkit-box-shadow .3s;
-  -webkit-appearance: none;
-  background-color: #40c4ff;
-  -webkit-transform-origin: 50% 50%;
-          transform-origin: 50% 50%;
-  margin: -5px 0 0 0; }
-
-input[type=range].focused:focus:not(.active)::-webkit-slider-thumb {
-  -webkit-box-shadow: 0 0 0 10px rgba(64, 196, 255, 0.26);
-          box-shadow: 0 0 0 10px rgba(64, 196, 255, 0.26); }
-
-input[type=range] {
-  /* fix for FF unable to apply focus style bug  */
-  border: 1px solid white;
-  /*required for proper track sizing in FF*/ }
-
-input[type=range]::-moz-range-track {
-  height: 3px;
-  background: #c2c0c2;
-  border: none; }
-
-input[type=range]::-moz-focus-inner {
-  border: 0; }
-
-input[type=range]::-moz-range-thumb {
-  border: none;
-  height: 14px;
-  width: 14px;
-  border-radius: 50%;
-  background: #40c4ff;
-  -webkit-transition: -webkit-box-shadow .3s;
-  transition: -webkit-box-shadow .3s;
-  transition: box-shadow .3s;
-  transition: box-shadow .3s, -webkit-box-shadow .3s;
-  margin-top: -5px; }
-
-input[type=range]:-moz-focusring {
-  outline: 1px solid #fff;
-  outline-offset: -1px; }
-
-input[type=range].focused:focus:not(.active)::-moz-range-thumb {
-  box-shadow: 0 0 0 10px rgba(64, 196, 255, 0.26); }
-
-input[type=range]::-ms-track {
-  height: 3px;
-  background: transparent;
-  border-color: transparent;
-  border-width: 6px 0;
-  /*remove default tick marks*/
-  color: transparent; }
-
-input[type=range]::-ms-fill-lower {
-  background: #777; }
-
-input[type=range]::-ms-fill-upper {
-  background: #ddd; }
-
-input[type=range]::-ms-thumb {
-  border: none;
-  height: 14px;
-  width: 14px;
-  border-radius: 50%;
-  background: #40c4ff;
-  -webkit-transition: -webkit-box-shadow .3s;
-  transition: -webkit-box-shadow .3s;
-  transition: box-shadow .3s;
-  transition: box-shadow .3s, -webkit-box-shadow .3s; }
-
-input[type=range].focused:focus:not(.active)::-ms-thumb {
-  box-shadow: 0 0 0 10px rgba(64, 196, 255, 0.26); }
+          transform: rotate(-45deg);
+  background-color: #808080;
+  position: absolute;
+  right: 26px; }
 
 /* This is needed for some mobile phones to display the Google Icon font properly */
 .material-icons {

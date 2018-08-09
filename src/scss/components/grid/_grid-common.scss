@@ -89,11 +89,11 @@ Media Query Classes
       right: 0;
       z-index: 99999999999999999999999999;
       user-select: none;
-      @media #{$extra-small-and-down} {content: "Extra Small Screen (<576px)";}
-      @media #{$small-only} {content: "Small Screen (<768px)";}
-      @media #{$medium-only} {content: "Medium Screen (<992px)";}
-      @media #{$large-only} {content: "Large Screen (<1201px)";}
-      @media #{$extra-large-and-up} {content: "Extra Large Screen (>1199px)";}
+      @media #{$extra-small-and-down} {content: "Extra Small Screen (<=#{$extra-small-screen-max})";}
+      @media #{$small-only} {content: "Small Screen (>=#{$small-screen-min} && <=#{$small-screen-max})";}
+      @media #{$medium-only} {content: "Medium Screen (>=#{$medium-screen-min} && <=#{$medium-screen-max})";}
+      @media #{$large-only} {content: "Large Screen (>=#{$large-screen-min} && <=#{$large-screen-max})";}
+      @media #{$extra-large-and-up} {content: "Extra Large Screen (>#{$large-screen-max})";}
    }
 }
 
